@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explora el Mundo: Tu Guía de Viajes</title>
+    <link rel="stylesheet" href="styles.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+<!-- Encabezado -->
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="pederasta.jpeg" alt="Explora el Mundo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#destinos"><i class="fa fa-globe"></i> Destinos</a></li>
+                <li><a href="#ofertas"><i class="fa fa-tags"></i> Ofertas</a></li>
+                <li><a href="#consejos"><i class="fa fa-paper-plane"></i> Consejos de Viaje</a></li>
+                <li><a href="#galeria"><i class="fa fa-image"></i> Galería</a></li>
+                <li><a href="#blog"><i class="fa fa-pencil-alt"></i> Blog</a></li>
+                <li><a href="#contactos"><i class="fa fa-phone-alt"></i> Contactos</a></li>
+            </ul>
+        </nav>
+        <div class="search">
+            <input type="text" id="buscador-header" placeholder="Busca tu próximo destino..." aria-label="Buscar destinos o ofertas">
+            <ul id="resultados-header" style="display: none;"></ul>
+        </div>
+    </div>
+</header>
+
+<!-- Banner Principal -->
+<section class="banner">
+    <div class="banner-content">
+        <h1>¡Descubre Tu Próximo Destino!</h1>
+        <a href="#ofertas" class="btn">Explora Ofertas Especiales</a>
+    </div>
+</section>
+
+<!-- Contenido Principal -->
+<main class="container">
+
+    <!-- Sección de Destinos Populares -->
+<section id="destinos" class="destinos">
+    <h2>Destinos Populares</h2>
+    <div class="destinos-list">
+        <article class="destino-item">
+            <img src="https://thumbs.dreamstime.com/z/collage-de-francia-55715778.jpg?w=768" 
+            alt="Collage de Francia" class="imagen-ajustada">
+            <h3>París, Francia</h3>
+            <p>La ciudad de la luz te espera con su arquitectura, cultura y gastronomía única.</p>
+            <a href="https://www.paris.es/" target="_blank">Descubre los Rincones de París</a>
+        </article>
+        <article class="destino-item">
+            <img src="http://st.depositphotos.com/1035350/4144/i/450/depositphotos_41449851-stock-photo-shinjuku-tokyo.jpg" 
+                 alt="Shinjuku, Tokio" class="imagen-ajustada">
+            <h3>Tokio, Japón</h3>
+            <p>Una ciudad vibrante que mezcla tradición y tecnología de vanguardia.</p>
+            <a href="https://www.gotokyo.org/es/">Explora Tokio</a>
+        </article>
+        <article class="destino-item">
+            <img src="https://previews.123rf.com/images/mariusz_prusaczyk/mariusz_prusaczyk1606/mariusz_prusaczyk160600178/89456560-collage-de-r%C3%ADo-de-janeiro-brasil-im%C3%A1genes-fondo-de-viajes-mis-fotos.jpg" 
+                 alt="Río de Janeiro, Brasil" class="imagen-ajustada">
+            <h3>Río de Janeiro, Brasil</h3>
+            <p>Playas paradisíacas, el Cristo Redentor y el carnaval más famoso del mundo.</p>
+            <a href="https://www.visitbrasil.com/">Descubre Brasil</a>
+        </article>
+    </div>
+</section>
+
+    <!-- Sección de Ofertas Especiales -->
+<section id="ofertas" class="ofertas">
+    <h2>Ofertas Especiales</h2>
+    <div class="oferta-item">
+        <h3>Escapada a las Islas Maldivas</h3>
+        <p>¡Disfruta de 7 noches en un resort todo incluido a un precio increíble! Reserva ahora y vive una experiencia única.</p>
+        <a href="https://www.booking.com/country/mv.es.html?aid=1845923" target="_blank" class="btn">Reserva tu Escapada a las Maldivas</a>
+    </div>
+    <div class="oferta-item">
+        <h3>Aventura en Safari en Sudáfrica</h3>
+        <p>Vive la emoción de un safari y explora la fauna africana en esta oferta única. ¡Haz tu reserva hoy mismo!</p>
+        <a href="https://africaincoming.es/?gad_source=1" target="_blank" class="btn">Embárcate en un Safari Africano</a>
+    </div>
+</section>
+
+    <!-- Sección de Consejos de Viaje -->
+<section id="consejos" class="consejos">
+    <h2>Consejos de Viaje</h2>
+    <div class="consejo-item">
+        <h3>Cómo Empacar Ligero para un Viaje Largo</h3>
+        <p>Aprende a empacar de manera eficiente para no sobrecargar tu equipaje. Con estos consejos podrás viajar con mayor comodidad.</p>
+        <a href="https://informationplanet.mx/blog/estudiayviaja/como-empacar-ligero/" target="_blank">Descubre los Mejores Consejos para Empacar</a>
+    </div>
+    <div class="consejo-item">
+        <h3>Los Mejores Consejos para Viajar por Europa en Tren</h3>
+        <p>Descubre cómo moverte cómodamente entre ciudades europeas sin perderte ningún detalle. Conoce los mejores itinerarios y rutas.</p>
+        <a href="https://www.worldpackers.com/es/articles/viajar-en-tren-por-europa" target="_blank">Explora Europa a Bordo del Tren</a>
+    </div>
+</section>
+
+<!-- Galería -->
+<section id="galeria" class="galeria">
+    <div class="container">
+        <h2 class="section-title">Galería de Viajes</h2>
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="https://byatrip.com/wp-content/uploads/francia-paris-tour-eiffel.jpg" alt="París, Francia">
+                <div class="galeria-caption">París, Francia</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://i0.wp.com/euroviajar.com/wp-content/uploads/2013/09/Lugares-destacados-Londres.jpg?fit=1920%2C1146&ssl=1" alt="Londres, Reino Unido">
+                <div class="galeria-caption">Londres, Reino Unido</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://www.fundacionaquae.org/wp-content/uploads/2016/05/Amazonas2.jpg" alt="Amazonas, Brasil">
+                <div class="galeria-caption">Amazonas, Brasil</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://www.lyxplanet.com/wp-content/uploads/2019/02/atardecer-en-el-desierto.jpg" alt="Egipto">
+                <div class="galeria-caption">Egipto</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://tripdo.com/wp-content/uploads/2023/07/cosas-que-hacer-en-paris-de-noche.png" alt="París de noche">
+                <div class="galeria-caption">París de noche</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://www.businessinsider.in/photo/47391579.cms" alt="Carnaval de Río de Janeiro, Brasil">
+                <div class="galeria-caption">Carnaval de Río de Janeiro, Brasil</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://www.magiholidays.com.au/wp-content/uploads/2016/08/maldives.jpg" alt="Maldivas">
+                <div class="galeria-caption">Maldivas</div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://img.static-kl.com/images/media/5613C7AF-06BB-48EC-845B931C495BDA70" alt="Pekín, China">
+                <div class="galeria-caption">Pekín, China</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Blog Section -->
+<section id="blog" class="blog">
+    <div class="container">
+        <h2 class="section-title">Blog de Viajes</h2>
+        
+        <div class="blog-posts">
+            <article class="post">
+                <h3 class="post-title">La Magia de Viajar Solo</h3>
+                <p class="post-excerpt">Viajar solo puede ser una de las experiencias más enriquecedoras. Aquí te contamos por qué deberías probarlo al menos una vez.</p>
+                <a href="https://inspirience.es/por-que-hay-que-viajar-solo/" target="_blank" class="btn btn-primary">Leer más</a>
+            </article>
+            
+            <article class="post">
+                <h3 class="post-title">Top 10 Playas en el Caribe</h3>
+                <p class="post-excerpt">Descubre las mejores playas en el Caribe para tus vacaciones soñadas. ¡El paraíso te espera!</p>
+                <a href="https://www.aviatur.com/blog/experiencias/playas-en-el-caribe" target="_blank" class="btn btn-primary">Ver los Mejores Destinos</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contactos" class="contactos">
+    <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        
+        <p class="section-description">Si tienes alguna consulta, no dudes en ponerte en contacto con nosotros. ¡Estamos aquí para ayudarte!</p>
+
+        <!-- Formulario de contacto -->
+        <form method="post" class="contact-form" id="contact-form">
+            <div class="form-group">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Ingresa tu nombre" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Ingresa tu correo electrónico" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea id="message" name="message" class="form-input" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-submit">Enviar Mensaje</button>
+        </form>
+        
+        <!-- Cuadro emergente de mensajes (CORREGIDO) -->
+        <div id="message-box" class="message-box" style="display: none;">
+            <p id="message-text"></p> <!-- Ahora el texto del mensaje está dentro -->
+        </div>
+
+        <!-- Correo de contacto -->
+        <p class="contact-email">O contáctanos por correo: <a href="mailto:info@viajes.com">info@viajes.com</a></p>
+    </div>
+</section>
+
+<!-- Script para manejar el envío del formulario -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("contact-form");
+        const messageBox = document.getElementById("message-box");
+        const messageText = document.getElementById("message-text");
+        const overlay = document.createElement("div");
+        overlay.id = "overlay";
+        document.body.appendChild(overlay);
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Mostrar mensaje de carga
+            messageText.innerText = "Enviando mensaje...";
+            messageBox.className = "message-box loading";
+            messageBox.style.display = "block";
+            overlay.style.display = "block";
+
+            // Simular el envío del mensaje
+            setTimeout(function() {
+                messageText.innerText = "¡Tu mensaje ha sido enviado con éxito!";
+                messageBox.className = "message-box success";
+
+                // Limpiar el formulario (simulado)
+                form.reset();
+
+                // Ocultar el cuadro después de unos segundos
+                setTimeout(function() {
+                    messageBox.style.display = "none";
+                    overlay.style.display = "none";
+                }, 2500);
+            }, 2000);
+        });
+
+        // Cerrar el mensaje si el usuario hace clic en el fondo oscuro
+        overlay.addEventListener("click", function() {
+            messageBox.style.display = "none";
+            overlay.style.display = "none";
+        });
+    });
+</script>
+
+
+<!-- Pie de Página -->
+<footer>
+    <div class="container">
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="contacto">
+            <p>Contacto: info@viajes.com</p>
+        </div>
+        <div class="legal">
+            <p>&copy; 2025 Explora el Mundo. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+>
+</body>
+</html>

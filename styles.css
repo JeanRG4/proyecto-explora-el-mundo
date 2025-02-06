@@ -1,0 +1,759 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Logo */
+.logo img {
+    width: 60px; /* Ajusta el tamaño */
+    height: auto;
+    border-radius: 50%; /* Para hacerlo redondo (opcional) */
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Buscador */
+header .search {
+    position: relative;
+    display: flex;           /* Asegura que el contenido esté alineado */
+    align-items: center;     /* Alinea verticalmente el input con el contenedor */
+}
+
+header .search input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    line-height: 1.5;         /* Ajusta la altura de la línea para que el texto esté centrado */
+    margin: 0;               /* Elimina el margen para evitar desplazamientos */
+}
+
+header .search input:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+}
+
+header .search button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);  /* Alinea el botón verticalmente */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1a1a1a;
+    font-size: 16px;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+header .search button:hover {
+    color: #f39c12;
+}
+
+/* Estilo para los resultados */
+#resultados {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    display: none;
+    z-index: 10;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#resultados li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#resultados li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Banner Principal */
+.banner {
+    background-image: url('banner-viaje.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;  /* Cambié el color a blanco, puedes ajustarlo */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.banner h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: black; /* Cambié el color del título a negro */
+}
+
+.banner .btn {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white; /* Cambié el color del texto del botón a blanco */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.banner .btn:hover {
+    background-color: #e67e22;
+    color: black; /* Cambié el color del texto del botón al pasar el mouse */
+}
+
+
+/* Destinos */
+.destinos {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.destinos h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.destinos .destinos-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Esto asegura que los destinos estén en una sola fila */
+}
+
+.destino-item {
+    width: 300px; /* Ajusta según el diseño */
+    height: 400px; /* Ajusta la altura */
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background: #f9f9f9;
+    padding: 15px;
+}
+
+.imagen-ajustada {
+    width: 100%;
+    height: 200px; /* Ajustar para que encaje bien */
+    object-fit: cover; /* Hace que la imagen se recorte sin deformarse */
+    border-radius: 10px;
+}
+
+.destino-item h3 {
+    font-size: 22px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.destino-item a {
+    text-decoration: none;
+    color: #f39c12;
+    transition: color 0.3s ease;
+}
+
+.destino-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.destino-item:hover a {
+    color: #e67e22;
+}
+
+/* Ofertas */
+.ofertas {
+    padding: 40px 20px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.oferta-item {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.oferta-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.oferta-item a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Galería */
+.galeria {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.galeria .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Grid de la galería con estilo tipo mosaico */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px; /* Fijar altura para mantener consistencia */
+    gap: 15px;
+}
+
+/* Estilos de cada imagen */
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Asegurar que las imágenes llenen su cuadro sin espacios en blanco */
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto de zoom y filtro al pasar el mouse */
+.galeria-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(80%);
+}
+
+/* Estilos de los textos en la imagen */
+.galeria-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mostrar el texto al pasar el mouse */
+.galeria-item:hover .galeria-caption {
+    opacity: 1;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-media a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+footer .legal p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Efecto Hover en botones */
+.banner .btn, .oferta-item a, .destino-item a {
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.banner .btn:hover, .oferta-item a:hover, .destino-item a:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* Animaciones en las imágenes de destinos */
+.destino-item img {
+    transition: transform 0.3s ease;
+}
+
+.destino-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Menú hamburguesa */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* Espaciado entre secciones */
+section {
+    padding: 80px 20px;
+}
+
+/* Ajuste para que los encabezados no queden pegados al borde de la pantalla */
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para los botones */
+a.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+a.btn:hover {
+    background-color: #e67e22;
+}
+
+/* General Styles */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Blog Section */
+.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.post {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.post-excerpt {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary {
+    background-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+}
+
+/* Contact Section */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+.contact-email {
+    font-size: 1.1em;
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-email a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-email a:hover {
+    text-decoration: underline;
+}
+
+/* Cuadro emergente de mensajes */
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+}
+
+/* Estilos para éxito y carga */
+.message-box.success {
+    border: 2px solid #28a745;
+    color: #28a745;
+}
+
+.message-box.loading {
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+/* Fondo oscuro detrás del cuadro */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+/* Barra lateral */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #2c3e50;
+    color: white;
+    display: none; /* Ocultar la barra lateral por defecto */
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 20px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+#sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s ease;
+}
+
+#sidebar ul li a:hover {
+    background-color: #34495e;
+}
+
+/* Mostrar barra lateral al pasar el mouse por encima */
+#sidebar:hover {
+    display: block;
+}
+
+/* Botón para abrir/ocultar la barra lateral */
+#sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1100; /* Asegura que esté encima de la barra lateral */
+}
+
+#sidebar-toggle:focus {
+    outline: none;
+}
+
+/* Índice */
+#index {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-top: 60px; /* Espacio para la barra lateral */
+    margin-bottom: 20px;
+}
+
+#index h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+#index ul {
+    list-style: none;
+    padding: 0;
+}
+
+#index ul li {
+    margin: 10px 0;
+}
+
+#index ul li a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#index ul li a:hover {
+    color: #3498db;
+}
+
+/* Descripción creativa */
+#description {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
+
+/* Navegación suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Contenido de cada sección */
+.section {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: #f4f6f6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #7f8c8d;
+}
+
+/* Estilo de carga */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden; /* Invisible por defecto */
+}
+
+#loading.active {
+    visibility: visible;
+}
+
+#loading .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ajustes de responsividad */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 200px;
+    }
+
+    #sidebar-toggle {
+        left: 20px;
+        font-size: 20px;
+    }
+
+    #index {
+        margin-top: 80px; /* Más espacio para la barra lateral */
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    #index ul li a {
+        font-size: 16px;
+    }
+}
+
+/* Animación de transición en las secciones */
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
