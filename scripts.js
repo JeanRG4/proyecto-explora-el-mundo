@@ -1,51 +1,67 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Desplazamiento suave al hacer clic en enlaces internos
+/*
+ * JavaScript para funcionalidades interactivas:
+ * - Smooth scrolling para enlaces internos
+ * - Menú responsive con toggle
+ * - Alertas para ofertas
+ * - Efecto hover en destinos
+ * - Buscador con sugerencias dinámicas
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    // -------------------------------------------
+    // 1. Smooth scrolling para todos los enlaces internos
+    // -------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevenir comportamiento predeterminado
-            const targetElement = document.querySelector(this.getAttribute('href'));
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute("href"));
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+                targetElement.scrollIntoView({ behavior: "smooth" });
             }
         });
     });
 
-    // Selecciona el botón del menú y el contenedor del menú
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('header nav ul');
+    // -------------------------------------------
+    // 2. Menú responsive: Mostrar/Ocultar menú al hacer clic en el botón toggle
+    // -------------------------------------------
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector("header nav ul");
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    }
 
-// Añade un evento de clic al botón para mostrar/ocultar el menú
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-
-    // Función para mostrar las ofertas de manera interactiva
-    document.querySelectorAll('.oferta-item a').forEach(button => {
-        button.addEventListener('click', (e) => {
+    // -------------------------------------------
+    // 3. Ofertas: Al hacer clic en un enlace de oferta se muestra una alerta
+    // -------------------------------------------
+    document.querySelectorAll(".oferta-item a").forEach(button => {
+        button.addEventListener("click", e => {
             e.preventDefault();
-            alert('¡Aprovecha esta oferta! Detalles enviados a tu correo.');
+            alert("¡Aprovecha esta oferta! Detalles enviados a tu correo.");
         });
     });
 
-    // Agregar animación al hacer hover sobre los destinos
-    document.querySelectorAll('.destino-item').forEach(item => {
-        item.addEventListener('mouseover', () => {
-            item.style.transform = 'scale(1.05)';
-            item.style.transition = 'all 0.3s ease';
+    // -------------------------------------------
+    // 4. Efecto hover en destinos: Escala el elemento al pasar el mouse
+    // -------------------------------------------
+    document.querySelectorAll(".destino-item").forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.transform = "scale(1.05)";
+            item.style.transition = "all 0.3s ease";
         });
-
-        item.addEventListener('mouseout', () => {
-            item.style.transform = 'scale(1)';
+        item.addEventListener("mouseout", () => {
+            item.style.transform = "scale(1)";
         });
     });
 
-    // Capturar clics en el menú, incluso si el usuario hace clic en el icono dentro del enlace
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevenir el comportamiento predeterminado de los enlaces
-
-            const href = this.getAttribute('href');
+    // -------------------------------------------
+    // 5. Smooth scrolling adicional para enlaces de navegación (opcional)
+    // -------------------------------------------
+    document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const href = this.getAttribute("href");
             if (href.startsWith("#")) {
                 const targetElement = document.querySelector(href);
                 if (targetElement) {
@@ -55,15 +71,16 @@ menuToggle.addEventListener('click', () => {
         });
     });
 
-    // Capturar clics en destinos, ofertas y consejos, incluso si el usuario hace clic en el ícono o el texto
-    document.querySelectorAll('.destino-item a, .oferta-item a, .consejo-item a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevenir el comportamiento predeterminado de los enlaces
-
-            const anchor = e.target.closest('a'); // Asegura que el clic se detecta en el <a>
+    // -------------------------------------------
+    // 6. Mapeo de enlaces en destinos, ofertas y consejos a secciones específicas
+    // -------------------------------------------
+    document.querySelectorAll(".destino-item a, .oferta-item a, .consejo-item a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const anchor = e.target.closest("a");
             if (!anchor) return;
 
-            // Este mapa de secciones es necesario para la correcta asignación de las secciones
+            // Mapa para asignar secciones según el contenido del enlace
             const sectionMap = {
                 "París": "destinos",
                 "Tokio": "destinos",
@@ -76,89 +93,89 @@ menuToggle.addEventListener('click', () => {
 
             for (const [key, sectionId] of Object.entries(sectionMap)) {
                 if (anchor.textContent.includes(key)) {
-                    document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: "smooth" });
+                    }
                     break;
                 }
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+    // -------------------------------------------
+    // 7. Funcionalidad del Buscador con sugerencias dinámicas
+    // -------------------------------------------
     const buscador = document.getElementById("buscador");
     const resultados = document.getElementById("resultados");
 
-    if (!buscador || !resultados) {
-        console.error("Los elementos de búsqueda no fueron encontrados en el DOM.");
-        return;
-    }
+    if (buscador && resultados) {
+        const elementos = [
+            { nombre: "París, Francia", link: "#destinos" },
+            { nombre: "Tokio, Japón", link: "#destinos" },
+            { nombre: "Río de Janeiro, Brasil", link: "#destinos" },
+            { nombre: "Escapada a las Islas Maldivas", link: "#ofertas" },
+            { nombre: "Aventura en Safari en Sudáfrica", link: "#ofertas" }
+        ];
 
-    const elementos = [
-        { nombre: "París, Francia", link: "#destinos" },
-        { nombre: "Tokio, Japón", link: "#destinos" },
-        { nombre: "Río de Janeiro, Brasil", link: "#destinos" },
-        { nombre: "Escapada a las Islas Maldivas", link: "#ofertas" },
-        { nombre: "Aventura en Safari en Sudáfrica", link: "#ofertas" }
-    ];
+        // Mostrar sugerencias mientras se escribe
+        buscador.addEventListener("input", function () {
+            const query = buscador.value.toLowerCase().trim();
+            resultados.innerHTML = "";
+            if (query === "") {
+                resultados.style.display = "none";
+                return;
+            }
 
-    // Mostrar sugerencias mientras se escribe
-    buscador.addEventListener("input", function () {
-        const query = buscador.value.toLowerCase().trim();
-        resultados.innerHTML = "";
-        if (query === "") {
-            resultados.style.display = "none";
-            return;
-        }
+            const filtrados = elementos.filter(el => el.nombre.toLowerCase().includes(query));
+            if (filtrados.length > 0) {
+                filtrados.forEach(el => {
+                    const li = document.createElement("li");
+                    li.textContent = el.nombre;
+                    li.tabIndex = 0; // Para accesibilidad (navegable con el teclado)
 
-        // Filtrar los elementos basados en la consulta
-        const filtrados = elementos.filter(el => el.nombre.toLowerCase().includes(query));
+                    // Redirigir al hacer clic en un resultado
+                    li.addEventListener("click", function () {
+                        window.location.hash = el.link;
+                    });
+                    // Redirigir al presionar "Enter" sobre un resultado
+                    li.addEventListener("keydown", function (event) {
+                        if (event.key === "Enter") {
+                            window.location.hash = el.link;
+                        }
+                    });
 
-        if (filtrados.length > 0) {
-            filtrados.forEach(el => {
-                const li = document.createElement("li");
-                li.textContent = el.nombre;
-                li.tabIndex = 0; // Asegura que el elemento sea accesible por teclado
-
-                // Redirigir al hacer clic en un resultado
-                li.addEventListener("click", function () {
-                    window.location.hash = el.link; // Cambiar la ubicación de la página sin recargarla
+                    resultados.appendChild(li);
                 });
+                resultados.style.display = "block";
+            } else {
+                resultados.style.display = "none";
+            }
+        });
 
-                // Redirigir al presionar "Enter" sobre un resultado
-                li.addEventListener("keydown", function (event) {
-                    if (event.key === "Enter") {
-                        window.location.hash = el.link; // Cambiar la ubicación de la página sin recargarla
+        // Cerrar sugerencias si se hace clic fuera del campo o la lista
+        document.addEventListener("click", function (e) {
+            if (!buscador.contains(e.target) && !resultados.contains(e.target)) {
+                resultados.style.display = "none";
+            }
+        });
+
+        // Redirigir al presionar "Enter" en el campo de búsqueda
+        buscador.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const searchTerm = buscador.value.trim();
+                if (searchTerm) {
+                    const encontrado = elementos.find(el => el.nombre.toLowerCase().includes(searchTerm.toLowerCase()));
+                    if (encontrado) {
+                        window.location.hash = encontrado.link;
+                    } else {
+                        resultados.style.display = "none";
                     }
-                });
-
-                resultados.appendChild(li);
-            });
-            resultados.style.display = "block";
-        } else {
-            resultados.style.display = "none";
-        }
-    });
-
-    // Cerrar resultados si se hace clic fuera del campo de búsqueda o resultados
-    document.addEventListener("click", function (e) {
-        if (!buscador.contains(e.target) && !resultados.contains(e.target)) {
-            resultados.style.display = "none";
-        }
-    });
-
-    // Redirigir al presionar "Enter" en el campo de búsqueda
-    buscador.addEventListener("keydown", function (event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();  // Prevenir la acción por defecto de "Enter"
-            const searchTerm = buscador.value.trim();
-            if (searchTerm) {
-                const encontrado = elementos.find(el => el.nombre.toLowerCase().includes(searchTerm.toLowerCase()));
-                if (encontrado) {
-                    window.location.hash = encontrado.link; // Cambiar la ubicación sin recargar
-                } else {
-                    resultados.style.display = "none"; // No encontró resultados, oculta la lista
                 }
             }
-        }
-    });
+        });
+    } else {
+        console.error("Los elementos de búsqueda no fueron encontrados en el DOM.");
+    }
 });

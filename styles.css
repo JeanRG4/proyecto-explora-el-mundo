@@ -1,22 +1,109 @@
-/* =============================
-   General
-   ============================= */
-   body {
-    font-family: 'Arial', sans-serif;
+/* ===================================
+   Reset y Estilos Globales
+   =================================== */
+   *, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background-color: #f4f4f4;
     font-size: 16px;
     line-height: 1.5;
 }
 
-/* =============================
-   Header
-   ============================= */
+/* Contenedor general */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Ajuste de imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===================================
+   Estilos Genéricos del Menú
+   =================================== */
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 10px;
+    }
+    .menu {
+        display: block;
+        background: #333;
+        color: #fff;
+        padding: 10px;
+    }
+    .menu-item {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #444;
+    }
+}
+
+/* Para pantallas medianas (tabletas) */
+@media (min-width: 600px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+    .container {
+        padding: 15px;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-around;
+    }
+    .menu-item {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+
+/* Para pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* Oculta el menú por defecto */
+    }
+    header nav ul.active {
+        display: block; /* Muestra el menú cuando se le añade la clase 'active' */
+    }
+    
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 18px;
+    }
+}
+
+
+/* ===================================
+   Header y Navegación
+   =================================== */
 header {
     background-color: #1a1a1a;
-    color: white;
+    color: #fff;
     padding: 20px 0;
 }
 
@@ -36,9 +123,7 @@ header .container {
     border-radius: 50%;
 }
 
-/* =============================
-   Navegación
-   ============================= */
+/* Navegación */
 header nav ul {
     display: flex;
     list-style: none;
@@ -51,14 +136,14 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
 }
 
-/* =============================
-   Buscador
-   ============================= */
+/* ===================================
+   Buscador en el Header
+   =================================== */
 header .search {
     position: relative;
     display: flex;
@@ -99,12 +184,12 @@ header .search button:hover {
     color: #f39c12;
 }
 
-/* =============================
+/* ===================================
    Resultados de búsqueda
-   ============================= */
+   =================================== */
 #resultados {
     position: absolute;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid #ccc;
     max-height: 200px;
     overflow-y: auto;
@@ -124,9 +209,9 @@ header .search button:hover {
     background-color: #f0f0f0;
 }
 
-/* =============================
-   Diseño Responsive
-   ============================= */
+/* ===================================
+   Diseño Responsive para Header y Navegación
+   =================================== */
 @media (max-width: 1024px) {
     body {
         font-size: 18px;
@@ -144,12 +229,12 @@ header .search button:hover {
         max-width: 90%;
     }
     header nav ul {
-        display: none; /* Ocultar menú en pantallas pequeñas */
+        display: none; /* Oculta el menú en pantallas pequeñas */
     }
     .menu-toggle {
         display: block;
         cursor: pointer;
-        color: white;
+        color: #fff;
         font-size: 18px;
     }
 }
@@ -166,12 +251,14 @@ header .search button:hover {
     }
 }
 
-/* Banner Principal */
+/* ===================================
+   Banner Principal
+   =================================== */
 .banner {
     background-image: url('banner-viaje.jpg');
     background-size: cover;
     background-position: center;
-    color: white;  /* Cambié el color a blanco, puedes ajustarlo */
+    color: #fff; /* Verifica que este color tenga buen contraste con la imagen */
     text-align: center;
     padding: 100px 0;
 }
@@ -179,13 +266,13 @@ header .search button:hover {
 .banner h1 {
     font-size: 40px;
     margin-bottom: 20px;
-    color: black; /* Cambié el color del título a negro */
+    color: #000;
 }
 
 .banner .btn {
     padding: 10px 20px;
     background-color: #f39c12;
-    color: white; /* Cambié el color del texto del botón a blanco */
+    color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -194,9 +281,8 @@ header .search button:hover {
 
 .banner .btn:hover {
     background-color: #e67e22;
-    color: black; /* Cambié el color del texto del botón al pasar el mouse */
+    color: #000;
 }
-
 
 /* Destinos */
 .destinos {
@@ -211,46 +297,71 @@ header .search button:hover {
     color: #333;
 }
 
+/* Permitir que los destinos se distribuyan en varias filas si es necesario */
 .destinos .destinos-list {
     display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap; /* Esto asegura que los destinos estén en una sola fila */
+    flex-wrap: wrap;  /* Cambiado a wrap para evitar que se compriman en una sola fila */
+    gap: 20px;        /* Espacio entre tarjetas */
 }
 
+/* Tarjeta de destino con ajustes para contenido y botón */
 .destino-item {
-    width: 300px; /* Ajusta según el diseño */
-    height: 400px; /* Ajusta la altura */
-    overflow: hidden;
     position: relative;
+    width: 300px;          /* Ancho fijo según diseño */
+    min-height: 400px;     /* Usamos min-height para permitir que se expanda si hay más contenido */
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     background: #f9f9f9;
     padding: 15px;
+    padding-bottom: 70px;  /* Reserva espacio para el botón */
 }
 
+/* Imagen de la tarjeta */
 .imagen-ajustada {
     width: 100%;
-    height: 200px; /* Ajustar para que encaje bien */
-    object-fit: cover; /* Hace que la imagen se recorte sin deformarse */
+    height: 200px;         /* Ajusta para que encaje bien */
+    object-fit: cover;     /* Recorta la imagen sin deformarla */
     border-radius: 10px;
 }
 
+/* Título de la tarjeta (se recorta si es muy largo) */
 .destino-item h3 {
     font-size: 22px;
     color: #333;
     margin: 15px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.destino-item a {
+/* Botón de destino posicionado de forma absoluta */
+.btn-destino {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: #fff;
     text-decoration: none;
-    color: #f39c12;
-    transition: color 0.3s ease;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Efecto hover para la tarjeta y el botón */
 .destino-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-destino:hover {
+    background-color: #e67e22;
+    transform: translateX(-50%) translateY(-2px);
 }
 
 .destino-item:hover a {
