@@ -1,13 +1,19 @@
-/* General */
-body {
+/* =============================
+   General
+   ============================= */
+   body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #f4f4f4;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-/* Header */
+/* =============================
+   Header
+   ============================= */
 header {
     background-color: #1a1a1a;
     color: white;
@@ -19,18 +25,25 @@ header .container {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    max-width: 90%;
+    margin: auto;
 }
 
 /* Logo */
 .logo img {
-    width: 60px; /* Ajusta el tamaño */
+    width: 60px;
     height: auto;
-    border-radius: 50%; /* Para hacerlo redondo (opcional) */
+    border-radius: 50%;
 }
 
+/* =============================
+   Navegación
+   ============================= */
 header nav ul {
     display: flex;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 header nav ul li {
@@ -43,11 +56,13 @@ header nav ul li a {
     font-size: 16px;
 }
 
-/* Buscador */
+/* =============================
+   Buscador
+   ============================= */
 header .search {
     position: relative;
-    display: flex;           /* Asegura que el contenido esté alineado */
-    align-items: center;     /* Alinea verticalmente el input con el contenedor */
+    display: flex;
+    align-items: center;
 }
 
 header .search input {
@@ -57,8 +72,8 @@ header .search input {
     border-radius: 20px;
     outline: none;
     transition: all 0.3s ease-in-out;
-    line-height: 1.5;         /* Ajusta la altura de la línea para que el texto esté centrado */
-    margin: 0;               /* Elimina el margen para evitar desplazamientos */
+    line-height: 1.5;
+    margin: 0;
 }
 
 header .search input:focus {
@@ -70,7 +85,7 @@ header .search button {
     position: absolute;
     right: 5px;
     top: 50%;
-    transform: translateY(-50%);  /* Alinea el botón verticalmente */
+    transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
@@ -84,7 +99,9 @@ header .search button:hover {
     color: #f39c12;
 }
 
-/* Estilo para los resultados */
+/* =============================
+   Resultados de búsqueda
+   ============================= */
 #resultados {
     position: absolute;
     background-color: white;
@@ -105,6 +122,48 @@ header .search button:hover {
 
 #resultados li:hover {
     background-color: #f0f0f0;
+}
+
+/* =============================
+   Diseño Responsive
+   ============================= */
+@media (max-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+    header .container {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    header .container {
+        max-width: 90%;
+    }
+    header nav ul {
+        display: none; /* Ocultar menú en pantallas pequeñas */
+    }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    header {
+        padding: 15px 0;
+    }
+    .logo img {
+        width: 50px;
+    }
 }
 
 /* Banner Principal */

@@ -10,6 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // Selecciona el botón del menú y el contenedor del menú
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('header nav ul');
+
+// Añade un evento de clic al botón para mostrar/ocultar el menú
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+
     // Función para mostrar las ofertas de manera interactiva
     document.querySelectorAll('.oferta-item a').forEach(button => {
         button.addEventListener('click', (e) => {
